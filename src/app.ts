@@ -1,7 +1,10 @@
 import express, { Application } from 'express'
+import { userRouter } from './app/modules/user/user.route'
 export const app: Application = express()
+import cors from 'cors'
+import { bookRouter } from './app/modules/book/book.route'
+app.use(express.json())
+app.use(cors())
 
-
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
+app.use('/api/v1/user', userRouter)
+app.use('/api/v1/book', bookRouter)
