@@ -9,7 +9,7 @@ export const userSchema = new Schema<IUser>({
 );
 
 userSchema.pre("save", async function (next) {
-    await bcrypt.hash(this.password, 12);
+    this.password = await bcrypt.hash(this.password, 12);
     next()
 })
 

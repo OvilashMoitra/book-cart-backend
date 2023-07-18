@@ -50,6 +50,41 @@ const createBook: RequestHandler = async (req: Request, res: Response) => {
         });
     }
 }
+const deleteBook: RequestHandler = async (req: Request, res: Response) => {
+    try {
+        const id = req.params.id
+        // const token = req.headers.authorization
+        // console.log(token)
+        // decoding the token and adding added by in the bookInfo
+        // const decodedToken = jwt.verify(token!, 'secret') as IJWTPayload
+        // console.log("decodedToken", decodedToken)
+        const book = await BookService.deleteBook(id)
+
+        res.json({ message: "book deleted successfully", code: 200, data: book })
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({
+            success: false,
+            message: "Failed to delete book",
+        });
+    }
+}
+const editBook: RequestHandler = async (req: Request, res: Response) => {
+    try {
+        const id = req.params.id
+        const bookedit = req.body
+        console.log("req.body", bookedit);
+        const book = await BookService.editBook(bookedit, id)
+
+        res.json({ message: "book edited successfully", code: 200, data: book })
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({
+            success: false,
+            message: "Failed to edit book",
+        });
+    }
+}
 
 const getAllBooks: RequestHandler = async (req: Request, res: Response) => {
     try {
@@ -86,5 +121,7 @@ const getAllBooks: RequestHandler = async (req: Request, res: Response) => {
 export const BookController = {
     getSingleBook,
     createBook,
-    getAllBooks
+    getAllBooks,
+    deleteBook,
+    editBook
 }
