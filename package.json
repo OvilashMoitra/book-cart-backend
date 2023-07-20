@@ -2,7 +2,7 @@
   "name": "npm",
   "version": "1.0.0",
   "description": "book cart backend.Assignment 5 backend",
-  "main": "server.ts",
+  "main": "src/server.ts",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "start": "node dist/server.js",
