@@ -6,8 +6,9 @@ import { bookRouter } from './app/modules/book/book.route'
 import { wishlistRouter } from './app/modules/wishlist/wishlist.route'
 app.use(express.json())
 app.use(cors())
+app.use(express.urlencoded())
 
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
     res.json({ data: "working" })
 })
 
