@@ -5,7 +5,7 @@ export type IBook = {
     imageUrl: string,
     name: string,
     genre: string,
-    publicationYear: Date;
+    publicationYear: number;
     author: string,
     addedBy: Schema.Types.ObjectId
 }

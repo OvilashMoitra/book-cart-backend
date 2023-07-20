@@ -4,7 +4,7 @@ exports.BookModel = void 0;
 const mongoose_1 = require("mongoose");
 const bookSchema = new mongoose_1.Schema({
     name: { type: String, required: true },
-    publicationYear: { type: Date, required: true },
+    publicationYear: { type: Number, required: true },
     author: { type: String, required: true },
     imageUrl: { type: String, required: true },
     genre: { type: String, required: true },
